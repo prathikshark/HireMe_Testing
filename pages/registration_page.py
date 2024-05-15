@@ -16,24 +16,24 @@ class RegistrationPage:
         self.driver = driver
         self.obj = BaseClass(self.driver)
 
-    def register_as_customer(self):
+    def register_as_customer(self, name, address, phone, email, password, confirm_password):
         name_field = self.obj.wait_till_present((By.XPATH, self.NAME_FIELD_XPATH))
-        self.obj.send_k(name_field, 'Prathiksha')
+        self.obj.send_k(name_field, name)
 
         address_field = self.obj.wait_till_present((By.XPATH, self.ADDRESS_FIELD_XPATH))
-        self.obj.send_k(address_field, 'marathalli')
+        self.obj.send_k(address_field, address)
 
         phone_field = self.obj.wait_till_present((By.XPATH, self.PHONE_FIELD_XPATH))
-        self.obj.send_k(phone_field, '1234567890')
+        self.obj.send_k(phone_field, phone)
 
         email_field = self.obj.wait_till_present((By.XPATH, self.EMAIL_FIELD_XPATH))
-        self.obj.send_k(email_field, 'prathiksha51266@gmail.com')
+        self.obj.send_k(email_field, email)
 
         password_field = self.obj.wait_till_present((By.XPATH, self.PASSWORD_FIELD_XPATH))
-        self.obj.send_k(password_field, '111111')
+        self.obj.send_k(password_field, password)
 
         password_confirmation_field = self.obj.wait_till_present((By.XPATH, self.PASSWORD_CONFIRMATION_FIELD_XPATH))
-        self.obj.send_k(password_confirmation_field, '111111')
+        self.obj.send_k(password_confirmation_field, confirm_password)
 
         signup_btn = self.obj.wait_till_clickable((By.XPATH, self.SIGNUP_BTN_XPATH))
         signup_btn.click()

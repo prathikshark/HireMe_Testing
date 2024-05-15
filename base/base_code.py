@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -10,13 +12,19 @@ class BaseClass:
         self.driver.implicitly_wait(sec)
 
     def wait_till_present(self, locator):
+        time.sleep(1)
+
         return WebDriverWait(self.driver, 3).until(EC.presence_of_element_located(locator))
 
     def wait_till_all_present(self, locator):
+        time.sleep(1)
         return WebDriverWait(self.driver, 7).until(EC.presence_of_all_elements_located(locator))
 
     def wait_till_clickable(self, locator):
+        time.sleep(1)
         return WebDriverWait(self.driver, 7).until(EC.element_to_be_clickable(locator))
 
     def send_k(self, element, data):
+        time.sleep(1)
         element.send_keys(data)
+

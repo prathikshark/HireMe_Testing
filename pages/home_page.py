@@ -36,7 +36,6 @@ class HomePage:
     def my_services(self):
         my_services_btn = self.obj.wait_till_clickable(self.MY_SERVICES_BTN)
         my_services_btn.click()
-        time.sleep(3)
 
     def profile(self):
         profile_btn = self.obj.wait_till_clickable((By.XPATH, self.PROFILE_BTN_XPATH))
@@ -48,11 +47,7 @@ class HomePage:
 
     def close_flash(self):
         flash_close_btn = self.obj.wait_till_clickable(self.FLASH_CLOSE_BTN)
-        try:
-            flash_close_btn.click()
-        except ElementClickInterceptedException:
-            time.sleep(1)
-            flash_close_btn.click()
+        flash_close_btn.click()
 
     def admin_dashboard(self):
         dashboard_btn = self.obj.wait_till_clickable((By.XPATH, self.DASHBOARD_BTN_XPATH))

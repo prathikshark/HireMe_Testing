@@ -57,10 +57,6 @@ class WorkersPage:
 
     def add_service(self):
         add_service_btn = self.obj.wait_till_clickable(self.ADD_SERVICE_BTN)
-        try:
-            add_service_btn.click()
-        except ElementClickInterceptedException:
-            time.sleep(1)
-            add_service_btn.click()
+        add_service_btn.click()
 
 

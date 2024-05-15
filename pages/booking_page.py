@@ -14,14 +14,13 @@ class BookingsPage:
     def remove_service(self):
         remove_service_btn = self.obj.wait_till_clickable(self.REMOVE_SERVICE_BTN)
         remove_service_btn.click()
-        time.sleep(3)
 
     def book(self):
         book_btn = self.obj.wait_till_clickable(self.BOOK_BTN)
+        booking_id = book_btn.get_attribute("data-booking-id")
         book_btn.click()
-        time.sleep(3)
+        return booking_id
 
     def confirm(self):
         confirm_btn = self.obj.wait_till_present(self.CONFIRM_BTN)
         confirm_btn.click()
-        time.sleep(3)

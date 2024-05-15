@@ -17,12 +17,12 @@ class LoginPage:
         signup_btn = self.obj.wait_till_present((By.XPATH, self.SIGNUP_BTN_XPATH))
         signup_btn.click()
 
-    def fill_details_and_login(self):
+    def fill_details_and_login(self, email,password):
         email_field = self.obj.wait_till_present((By.XPATH, self.EMAIL_FIELD_XPATH))
-        self.obj.send_k(email_field, 'admin1@hireme.com')
+        self.obj.send_k(email_field, email)
 
         password_field = self.obj.wait_till_present((By.XPATH, self.PASSWORD_FIELD_XPATH))
-        self.obj.send_k(password_field, 'admin1')
+        self.obj.send_k(password_field, password)
 
         login_btn = self.obj.wait_till_present((By.XPATH, self.LOGIN_BTN))
         login_btn.click()

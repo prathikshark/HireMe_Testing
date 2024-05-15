@@ -22,8 +22,5 @@ class CustomerProfilePage:
         rating_field.send_keys(4)
 
         submit_feedback_btn = self.obj.wait_till_present(self.SUBMIT_FEEDBACK_BTN)
-        try:
-            submit_feedback_btn.click()
-        except ElementClickInterceptedException:
-            time.sleep(1)
-            submit_feedback_btn.click()
+        submit_feedback_btn.click()
+

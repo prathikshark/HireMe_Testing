@@ -13,14 +13,10 @@ def test_title(chrome_browser):
 
     home = HomePage(driver)
     login = LoginPage(driver)
-    register = RegistrationPage(driver)
-    worker = WorkersPage(driver)
-    booking = BookingsPage(driver)
-    worker_profile = WorkerProfilePage(driver)
     admin = AdminPage(driver)
 
     home.login_btn_click()
-    login.fill_details_and_login()
+    login.fill_details_and_login("admin1@hireme.com",'admin1')
     home.close_flash()
 
     home.admin_dashboard()

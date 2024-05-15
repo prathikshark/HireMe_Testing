@@ -4,6 +4,7 @@ from selenium.common import ElementClickInterceptedException
 from selenium.webdriver.common.by import By
 from base.base_code import BaseClass
 
+
 class WorkerProfilePage:
     ADD_SKILL_BTN_XPATH = (By.XPATH, "//button[text()='Add']")
     SELECT_SKILL_XPATH = "(//select[@id='worker_skill_id'])[1]"
@@ -50,21 +51,14 @@ class WorkerProfilePage:
 
     def remove_skill(self):
         remove_worker_skill_btn = self.obj.wait_till_present((By.XPATH, self.REMOVE_SKILL_BTN_XPATH))
-        try:
-            remove_worker_skill_btn.click()
-        except ElementClickInterceptedException:
-            time.sleep(1)
-            remove_worker_skill_btn.click()
+        remove_worker_skill_btn.click()
 
     def update_data(self):
         update_btn = self.obj.wait_till_present((By.XPATH, self.UPDATE_BTN_XPATH))
-        try:
-            update_btn.click()
-        except ElementClickInterceptedException:
-            time.sleep(1)
-            update_btn.click()
+        update_btn.click()
 
         age = self.obj.wait_till_present((By.XPATH, self.AGE_FIELD_XPATH))
+        age.clear()
         self.obj.send_k(age, '24')
 
         from_date = self.obj.wait_till_present((By.XPATH, self.FROM_DATE_FIELD_XPATH))
@@ -74,8 +68,5 @@ class WorkerProfilePage:
         self.obj.send_k(to_date, '30-05-2024')
 
         submit_btn = self.obj.wait_till_clickable((By.XPATH, self.SUBMIT_BTN_XPATH))
-        try:
-            submit_btn.click()
-        except ElementClickInterceptedException:
-            time.sleep(1)
-            submit_btn.click()
+        submit_btn.click()
+
