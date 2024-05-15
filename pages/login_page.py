@@ -13,6 +13,10 @@ class LoginPage:
         self.driver = driver
         self.obj = BaseClass(self.driver)
 
+    def sign_up_btn_click(self):
+        signup_btn = self.obj.wait_till_present((By.XPATH, self.SIGNUP_BTN_XPATH))
+        signup_btn.click()
+
     def fill_details_and_login(self):
         email_field = self.obj.wait_till_present((By.XPATH, self.EMAIL_FIELD_XPATH))
         self.obj.send_k(email_field, 'admin1@hireme.com')

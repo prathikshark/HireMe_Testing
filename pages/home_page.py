@@ -13,6 +13,9 @@ class HomePage:
     MY_SERVICES_BTN = (By.XPATH, "//button[text()='My services']")
     SELECT_SERVICE_BTN = (By.XPATH, '//*[@id="skill_type"]')
     FLASH_CLOSE_BTN = (By.XPATH, '//button[@class="btn-close"]')
+    PROFILE_BTN_XPATH = '//button[text()="Profile"]'
+    DASHBOARD_BTN_XPATH = '//a[text()="Dashboard"]'
+    PENDING_REQUESTS_BTN_XPATH = "//button[text()='Pending requests']"
 
     def __init__(self, driver):
         self.driver = driver
@@ -36,7 +39,7 @@ class HomePage:
         time.sleep(3)
 
     def profile(self):
-        profile_btn = self.obj.wait_till_clickable((By.XPATH, '//button[text()="Profile"]'))
+        profile_btn = self.obj.wait_till_clickable((By.XPATH, self.PROFILE_BTN_XPATH))
         profile_btn.click()
 
     def services(self):
@@ -52,9 +55,9 @@ class HomePage:
             flash_close_btn.click()
 
     def admin_dashboard(self):
-        dashboard_btn = self.obj.wait_till_clickable((By.XPATH, '//a[text()="Dashboard"]'))
+        dashboard_btn = self.obj.wait_till_clickable((By.XPATH, self.DASHBOARD_BTN_XPATH))
         dashboard_btn.click()
 
     def pending_requests(self):
-        pending_requests_btn = self.obj.wait_till_clickable((By.XPATH, "//button[text()='Pending requests']"))
+        pending_requests_btn = self.obj.wait_till_clickable((By.XPATH, self.PENDING_REQUESTS_BTN_XPATH))
         pending_requests_btn.click()

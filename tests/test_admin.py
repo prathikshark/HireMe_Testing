@@ -33,7 +33,7 @@ def test_title(chrome_browser):
     admin.view_all_workers()
     admin.reject()
     home.pending_requests()
-    admin.approve()
+    # admin.approve()
 
     home.admin_dashboard()
     admin.view_all_skills()

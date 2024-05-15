@@ -23,6 +23,7 @@ class WorkersPage:
         self.obj = BaseClass(self.driver)
 
     def apply_filter(self):
+        time.sleep(3)
         cooking_btn = self.obj.wait_till_present(self.COOKING_BTN)
         cooking_btn.click()
 

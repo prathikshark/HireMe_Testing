@@ -27,7 +27,7 @@ class RegistrationPage:
         self.obj.send_k(phone_field, '1234567890')
 
         email_field = self.obj.wait_till_present((By.XPATH, self.EMAIL_FIELD_XPATH))
-        self.obj.send_k(email_field, 'prathiksha566@gmail.com')
+        self.obj.send_k(email_field, 'prathiksha51266@gmail.com')
 
         password_field = self.obj.wait_till_present((By.XPATH, self.PASSWORD_FIELD_XPATH))
         self.obj.send_k(password_field, '111111')
