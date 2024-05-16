@@ -18,6 +18,14 @@ class BookedServicesDB(DatabaseCode):
         db.close()
         return bool(result)
 
+    def check_if_rating_added(self, serviceId):
+        db = self.connect_to_db()
+        db_cursor = db.cursor()
+        db_cursor.execute(f"SELECT rating FROM booked_services where id={serviceId}")
+        result = db_cursor.fetchone()[0]
+        db.close()
+        return result
+
 # udb = BookedServicesDB()
 # c=udb.count_of_booked_services()
 # print (c)

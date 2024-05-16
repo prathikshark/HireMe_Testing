@@ -28,10 +28,10 @@ class WorkersPage:
         cooking_btn.click()
 
         from_date_btn = self.obj.wait_till_present(self.FROM_DATE_BTN)
-        self.obj.send_k(from_date_btn, '31-05-2024')
+        self.obj.send_k(from_date_btn, '20-05-2024')
 
         to_date_btn = self.obj.wait_till_present(self.TO_DATE_BTN)
-        self.obj.send_k(to_date_btn, '31-05-2024')
+        self.obj.send_k(to_date_btn, '20-05-2024')
 
         shift_btn = self.obj.wait_till_present(self.SHIFT_BTN)
         self.obj.send_k(shift_btn, 'Day')

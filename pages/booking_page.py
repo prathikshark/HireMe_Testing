@@ -4,7 +4,7 @@ import time
 
 class BookingsPage:
     REMOVE_SERVICE_BTN = (By.XPATH, "(//button[text()=' Remove'])[1]")
-    BOOK_BTN = (By.XPATH, "//button[text()='Book']")
+    BOOK_BTN = (By.XPATH, "//button[contains(text(), 'Book')]")
     CONFIRM_BTN = (By.XPATH, '//button[text()="Confirm"]')
 
     def __init__(self, driver):
@@ -22,5 +22,5 @@ class BookingsPage:
         return booking_id
 
     def confirm(self):
-        confirm_btn = self.obj.wait_till_present(self.CONFIRM_BTN)
+        confirm_btn = self.obj.wait_till_clickable(self.CONFIRM_BTN)
         confirm_btn.click()

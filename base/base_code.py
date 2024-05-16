@@ -13,7 +13,6 @@ class BaseClass:
 
     def wait_till_present(self, locator):
         time.sleep(1)
-
         return WebDriverWait(self.driver, 3).until(EC.presence_of_element_located(locator))
 
     def wait_till_all_present(self, locator):
