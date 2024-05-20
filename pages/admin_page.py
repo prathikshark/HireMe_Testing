@@ -63,7 +63,10 @@ class AdminPage(BaseClass):
 
     def approve(self):
         approve_btn = self.wait_till_clickable((By.XPATH, self.APPROVE_BTN_XPATH))
+        worker_id_approve = approve_btn.get_attribute('data-worker-id')
         approve_btn.click()
+        time.sleep(2)
+        return worker_id_approve
 
     def view_all_workers(self):
         view_all_workers_btn = self.wait_till_clickable((By.XPATH, self.VIEW_ALL_WORKERS_XPATH))
@@ -77,8 +80,10 @@ class AdminPage(BaseClass):
         reject_btn = self.wait_till_clickable((By.XPATH, self.REJECT_BTN_XPATH))
         worker_id = reject_btn.get_attribute('data-worker-id')
         reject_btn.click()
+        time.sleep(2)
         return worker_id
 
     def remove_skill(self):
         remove_skill_btn = self.wait_till_clickable((By.XPATH, self.REMOVE_SKILL_BTN_XPATH))
         remove_skill_btn.click()
+        time.sleep(10)

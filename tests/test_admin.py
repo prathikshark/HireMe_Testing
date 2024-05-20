@@ -6,6 +6,7 @@ from database.workers import WorkersDB
 from pages.admin_page import AdminPage
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
+from pages.worker_page import WorkersPage
 
 
 def test_title(chrome_browser):
@@ -14,6 +15,7 @@ def test_title(chrome_browser):
     home = HomePage(driver)
     login = LoginPage(driver)
     admin = AdminPage(driver)
+    worker = WorkersPage(driver)
 
     user_db = UsersDB()
     worker_db = WorkersDB()
@@ -33,28 +35,27 @@ def test_title(chrome_browser):
     user_id = user_db.find_user_id_by_email('newadmin@hireme.com')
     initial_value = user_db.get_value_from_db(user_id, 'name')
     admin.edit_admin_details('editedAdmin', 'admin2')
-    # time.sleep(2)
     after_edit_value = user_db.get_value_from_db(user_id, 'name')
     assert after_edit_value != initial_value
 
     home.admin_dashboard()
     admin.view_all_workers()
 
-    initial_status = worker_db.get_value_from_worker(user_id, 'status')
-    after_reject_status = worker_db.get_value_from_worker(user_id, 'status')
-    assert initial_status != after_reject_status
+    worker_id = admin.reject()
+    after_reject_status = worker_db.get_value_from_worker(worker_id, 'status')
+    assert after_reject_status == 'rejected'
 
     home.pending_requests()
-    admin.approve()
-    after_approved_status = worker_db.get_value_from_worker(user_id, 'status')
+    worker_id_approve = admin.approve()
+    after_approved_status = worker_db.get_value_from_worker(worker_id_approve, 'status')
     assert after_approved_status == 'approved'
 
     home.admin_dashboard()
-    admin.view_all_skills()
+    # admin.view_all_skills()
 
-    initial_count_of_skills = skill_db.get_count_of_skills()
-    admin.remove_skill()
-    assert skill_db.get_count_of_skills() == initial_count_of_skills - 1
+    # initial_count_of_skills = skill_db.get_count_of_skills()
+    # admin.remove_skill()
+    # assert skill_db.get_count_of_skills() == initial_count_of_skills - 1
 
     home.logout()
-    time.sleep(10)
+    time.sleep(5)

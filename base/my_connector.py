@@ -9,7 +9,7 @@ class DatabaseCode:
         hireme_development_db = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="@Sumanark123",
+            password="prathikshark31",
             database='hireme_development',
             auth_plugin='mysql_native_password'
         )

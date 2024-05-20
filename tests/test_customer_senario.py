@@ -25,7 +25,7 @@ def test_title(chrome_browser):
     home.login_btn_click()
     login.sign_up_btn_click()
     initial_users_count = udb.count_of_users()
-    register.register_as_customer('Aman', 'marathalli', '1111111111', 'ax1@gmail.com', '111111', '111111')
+    register.register_as_customer('Aman', 'marathalli', '1111111111', 'ax2@gmail.com', '111111', '111111')
     time.sleep(2)
     users_count_after_add = udb.count_of_users()
     assert users_count_after_add == (initial_users_count + 1)
