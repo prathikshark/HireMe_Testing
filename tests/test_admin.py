@@ -19,7 +19,6 @@ def test_title(chrome_browser):
 
     user_db = UsersDB()
     worker_db = WorkersDB()
-    skill_db = SkillsDB()
 
     home.login_btn_click()
     login.fill_details_and_login("admin1@hireme.com", 'admin1')
@@ -51,11 +50,6 @@ def test_title(chrome_browser):
     assert after_approved_status == 'approved'
 
     home.admin_dashboard()
-    # admin.view_all_skills()
-
-    # initial_count_of_skills = skill_db.get_count_of_skills()
-    # admin.remove_skill()
-    # assert skill_db.get_count_of_skills() == initial_count_of_skills - 1
 
     home.logout()
     time.sleep(5)

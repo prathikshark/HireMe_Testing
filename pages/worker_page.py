@@ -1,4 +1,6 @@
 import time
+
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from base.base_code import BaseClass
 
@@ -25,10 +27,10 @@ class WorkersPage(BaseClass):
         cooking_btn.click()
 
         from_date_btn = self.wait_till_present(self.FROM_DATE_BTN)
-        self.send_k(from_date_btn, '20-05-2024')
+        self.send_k(from_date_btn, '23-05-2024')
 
         to_date_btn = self.wait_till_present(self.TO_DATE_BTN)
-        self.send_k(to_date_btn, '20-05-2024')
+        self.send_k(to_date_btn, '23-05-2024')
 
         shift_btn = self.wait_till_present(self.SHIFT_BTN)
         self.send_k(shift_btn, 'Day')
@@ -50,9 +52,10 @@ class WorkersPage(BaseClass):
 
         apply_filter_btn = self.wait_till_present(self.APPLY_FILTER_BTN)
         apply_filter_btn.click()
-        time.sleep(2)
 
     def add_service(self):
         add_service_btn = self.wait_till_clickable(self.ADD_SERVICE_BTN)
+        actions = ActionChains(self.driver)
+        actions.scroll_to_element(add_service_btn)
         add_service_btn.click()
         time.sleep(2)

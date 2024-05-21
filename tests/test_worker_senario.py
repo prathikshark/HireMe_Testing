@@ -4,9 +4,6 @@ from database.workers import WorkersDB
 from database.worker_skills import WorkerSkillsDB
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
-from pages.registration_page import RegistrationPage
-from pages.worker_page import WorkersPage
-from pages.booking_page import BookingsPage
 from pages.worker_profile_page import WorkerProfilePage
 
 
@@ -21,11 +18,11 @@ def test_title(chrome_browser):
     user_db = UsersDB()
 
     home.login_btn_click()
-    login.fill_details_and_login("purav@gmail.com", "111111")
+    login.fill_details_and_login("om@gmail.com", "111111")
     home.close_flash()
     home.profile()
 
-    user_id = user_db.find_user_id_by_email('purav@gmail.com')
+    user_id = user_db.find_user_id_by_email('om@gmail.com')
     worker_id = worker_db.find_worker_id_by_user_id(user_id)
 
     initial_worker_skill_count = workerSkillDB.count_of_worker_skills(worker_id)

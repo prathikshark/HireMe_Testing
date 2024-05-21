@@ -45,7 +45,6 @@ class AdminPage(BaseClass):
 
         add_btn = self.wait_till_clickable((By.XPATH, self.ADD_BTN_XPATH))
         add_btn.click()
-        time.sleep(2)
 
     def edit_admin_details(self, name, password):
         edit_btn = self.wait_till_clickable((By.XPATH, self.EDIT_BTN_XPATH))
